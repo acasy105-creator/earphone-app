@@ -1,6 +1,6 @@
 import streamlit as st
 
-# 1. データの準備
+# --- 1. データの準備 ---
 earphone_list = [
     # 🎮 ゲーム中心
     {"useCase": "ゲーム中心", "focus": "迫力の重低音", "shape": "完全ワイヤレス", "budget": "5,000円以下", "name": "Anker Soundcore P31i", "price": "約4,990円", "reason": "5000円以下なのにアンカー特有のズンと響く重低音が楽しめる！爆発音などの迫力が段違いで、コスパ良くゲーム環境を上げたい人に最適。", "url": "https://www.amazon.co.jp/dp/dummy1"},
@@ -34,7 +34,7 @@ earphone_list = [
     {"useCase": "仕事・通話", "focus": "長時間つけても疲れない装着感", "shape": "没入感のあるヘッドホン", "budget": "1万円以下", "name": "AVIOT WA-V1", "price": "約9,990円", "reason": "120時間というバグレベルのバッテリー持ち。充電の手間がなく、アルミを使った美しいデザインでWEB会議でもスタイリッシュな印象を与えられるよ。", "url": "https://www.amazon.co.jp/dp/dummy25"},
     {"useCase": "仕事・通話", "focus": "マイク性能", "shape": "完全ワイヤレス", "budget": "3万円以下", "name": "Anker Soundcore Liberty 4 Pro", "price": "約13,990円", "reason": "アンカー最上位の高品質な通話ノイズリダクション。AirPodsライクな「つまんで操作」でミュートなどの操作も確実に行えるプロフェッショナル仕様。", "url": "https://www.amazon.co.jp/dp/dummy26"},
 
-    # 💼 動画・ASMR
+    # 🎬 動画・ASMR
     {"useCase": "動画・ASMR", "focus": "クリアな高音・ボーカル", "shape": "遅延のない有線", "budget": "5,000円以下", "name": "final E500", "price": "約1,000円台", "reason": "ASMRを聴くために開発された専用イヤホン。耳元で囁かれる息遣いや耳かきのゾクゾク感が、他のイヤホンとは次元が違う圧倒的な生々しさ！", "url": "https://www.amazon.co.jp/dp/dummy27"},
     {"useCase": "動画・ASMR", "focus": "迫力の重低音", "shape": "完全ワイヤレス", "budget": "3万円以下", "name": "Bose QuietComfort Ultra", "price": "約39,000円", "reason": "シネマモード搭載で空間オーディオの出来が秀逸。圧倒的なノイキャン空間の中で、映画館のど真ん中にいるような極上の映像体験ができるよ。", "url": "https://www.amazon.co.jp/dp/dummy28"},
     {"useCase": "動画・ASMR", "focus": "長時間つけても疲れない装着感", "shape": "完全ワイヤレス", "budget": "1万円以下", "name": "Sony WF-C510", "price": "約9,000円", "reason": "めちゃくちゃ小さくて軽いから、ベッドで寝転がりながら使っても耳への圧迫感が少ない。寝る前の長時間の動画視聴にぴったりの癒しイヤホン。", "url": "https://www.amazon.co.jp/dp/dummy29"},
@@ -42,39 +42,81 @@ earphone_list = [
     {"useCase": "動画・ASMR", "focus": "クリアな高音・ボーカル", "shape": "完全ワイヤレス", "budget": "予算は気にしない", "name": "Apple AirPods Pro (第3世代)", "price": "約39,800円", "reason": "空間オーディオの「顔の向きに音が追従する機能」が魔法のように自然。iPadやiPhoneでの動画視聴が、まるで現実の空間に音が配置されている感覚になるよ。", "url": "https://www.amazon.co.jp/dp/dummy31"},
     {"useCase": "動画・ASMR", "focus": "迫力の重低音", "shape": "完全ワイヤレス", "budget": "1万円以下", "name": "AVIOT TE-Upn", "price": "約8,173円", "reason": "グルーブモードに変更すれば、映画の爆発音やライブ映像の地鳴りのような低音をフルパワーで体感できる。映像の迫力を120%引き出すならコレ！", "url": "https://www.amazon.co.jp/dp/dummy32"},
     {"useCase": "動画・ASMR", "focus": "長時間つけても疲れない装着感", "shape": "耳を塞がないイヤカフ型", "budget": "1万円以下", "name": "EarFun Clip", "price": "約6,990円", "reason": "耳をふさがないので、休日にゴロゴロしながらYouTubeを流し見していても全くストレスがない。着けているのを忘れるくらい快適な視聴環境が作れるよ。", "url": "https://www.amazon.co.jp/dp/dummy33"},
-    {"useCase": "動画・ASMR", "focus": "クリアな高音・ボーカル", "shape": "遅延のない有線", "budget": "1万円以下", "name": "Sennheiser IE 200", "price": "約9,800円", "reason": "有線だから映像と音のズレが完全ゼロ。ボーカルの息遣いやセリフが恐ろしいほどクリアに聞こえるため、ドラマや映画の世界観に深く補入できる！", "url": "https://www.amazon.co.jp/dp/dummy34"}
+    {"useCase": "動画・ASMR", "focus": "クリアな高音・ボーカル", "shape": "遅延のない有線", "budget": "1万円以下", "name": "Sennheiser IE 200", "price": "約9,800円", "reason": "有線だから映像と音のズレが完全ゼロ。ボーカルの息遣いやセリフが恐ろしいほどクリアに聞こえるため、ドラマや映画の世界観に深く没入できる！", "url": "https://www.amazon.co.jp/dp/dummy34"}
 ]
-# ※動作確認のため4つだけ入れています。後で自由に追加できます！
 
-# 2. 画面のUI
+# --- 2. 状態（今何問目か・回答内容）の記憶 ---
+if 'current_step' not in st.session_state:
+    st.session_state.current_step = 0
+    st.session_state.user_answers = []
+
+# 質問のリスト（Androidの時と同じ構成）
+questions = [
+    {"title": "Q1：主な用途は？", "options": ["ゲーム中心", "音楽中心", "仕事・通話", "動画・ASMR"]},
+    {"title": "Q2：一番こだわるポイントは？", "options": ["迫力の重低音", "クリアな高音・ボーカル", "マイク性能", "長時間つけても疲れない装着感"]},
+    {"title": "Q3：好きなタイプ（形状）は？", "options": ["完全ワイヤレス", "耳を塞がないイヤカフ型", "遅延のない有線", "没入感のあるヘッドホン"]},
+    {"title": "Q4：予算は？", "options": ["5,000円以下", "1万円以下", "3万円以下", "予算は気にしない"]}
+]
+
 st.title("🎧 最適イヤホン診断ツール")
-st.write("4つの質問に答えるだけで、あなたにぴったりのデバイスを導き出します。")
 
-ans1 = st.radio("Q1：主な用途は？", ["ゲーム中心", "音楽中心", "仕事・通話", "動画・ASMR"])
-ans2 = st.radio("Q2：一番こだわるポイントは？", ["迫力の重低音", "クリアな高音・ボーカル", "マイク性能", "長時間つけても疲れない装着感"])
-ans3 = st.radio("Q3：好きなタイプ（形状）は？", ["完全ワイヤレス", "耳を塞がないイヤカフ型", "遅延のない有線", "没入感のあるヘッドホン"])
-ans4 = st.radio("Q4：予算は？", ["5,000円以下", "1万円以下", "3万円以下", "予算は気にしない"])
+# --- 3. 画面の切り替えロジック ---
 
-# 3. 診断ロジック
-if st.button("診断結果を見る", type="primary"):
+# ▼ パターンA：4問すべて答え終わった場合（結果画面）
+if st.session_state.current_step >= len(questions):
+    st.subheader("あなたに最適なデバイスは…")
+
+    # Androidの時と同じスコア計算ロジック
     best_match = earphone_list[0]
     max_score = -1
 
     for earphone in earphone_list:
         score = 0
-        if earphone["useCase"] == ans1: score += 1
-        if earphone["focus"] == ans2: score += 1
-        if earphone["shape"] == ans3: score += 1
-        if earphone["budget"] == ans4: score += 1
+        if earphone["useCase"] == st.session_state.user_answers[0]: score += 1
+        if earphone["focus"] == st.session_state.user_answers[1]: score += 1
+        if earphone["shape"] == st.session_state.user_answers[2]: score += 1
+        if earphone["budget"] == st.session_state.user_answers[3]: score += 1
         
         if score > max_score:
             max_score = score
             best_match = earphone
 
-    # 4. 結果の表示
-    st.divider()
-    st.subheader("あなたに最適なデバイスは…")
+    # 結果の表示
     st.header(best_match["name"])
     st.success(best_match["price"])
     st.write(best_match["reason"])
     st.link_button("Amazonで詳細を見る", best_match["url"])
+
+    st.divider()
+    # 最初に戻るボタン
+    if st.button("もう一度診断する", type="secondary"):
+        st.session_state.current_step = 0       # 最初の質問に戻す
+        st.session_state.user_answers = []      # 回答をリセット
+        st.rerun()                              # 画面を再読み込み
+
+# ▼ パターンB：まだ回答中（質問画面）
+else:
+    current_q = questions[st.session_state.current_step]
+    
+    # 進行状況バーの表示
+    progress_val = st.session_state.current_step / len(questions)
+    st.progress(progress_val)
+    st.write(f"**現在: {st.session_state.current_step + 1} / {len(questions)}問目**")
+    
+    # ラジオボタンで選択肢を表示
+    st.subheader(current_q["title"])
+    selected_option = st.radio("選択してください", current_q["options"], key=f"q_{st.session_state.current_step}")
+
+    st.write("") # 少し余白を空ける
+    
+    # 「次へ」ボタンが押された時の処理
+    if st.button("次へ", type="primary"):
+        # 答えをリストに追加（または上書き）
+        if len(st.session_state.user_answers) > st.session_state.current_step:
+            st.session_state.user_answers[st.session_state.current_step] = selected_option
+        else:
+            st.session_state.user_answers.append(selected_option)
+            
+        # 次のステップへ進めて、画面を再読み込み
+        st.session_state.current_step += 1
+        st.rerun()
